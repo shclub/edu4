@@ -1,15 +1,8 @@
-FROM python:3.8-slim
+FROM python:3.8.5-alpine3.12
 
-# set the working directory in the container to /app
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# add the current directory to the container as /app
-ADD . /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
-
-# unblock port 80 for the Flask app to run on
-EXPOSE 40006
-
-# execute the Flask app
-CMD ["python", "app.py"]
+CMD [ "python", "app.py" ]
