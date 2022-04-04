@@ -25,7 +25,7 @@ pipeline {
             steps{
                 script{
                     dockerImageVersioned = docker.build dockerRepo //+ ":$BUILD_NUMBER"
-                    dockerImageLatest = docker.build dockerRepo + ":v1"
+                    dockerImageLatest = docker.build dockerRepo + ":v2"
                 }
             }
         }
