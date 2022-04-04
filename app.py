@@ -8,7 +8,7 @@ podname = os.uname()[1]
 
 @app.route("/")
 def index():
-    return " Container EDU | POD Working : " + podname + " | v=1\n"
+    return " Container EDU | POD Working : " + podname + " | v=2\n"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
