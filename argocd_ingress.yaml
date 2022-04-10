@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-ingress
+  annotations:
+          #ingress.kubernetes.io/rewrite-target: "/applications"
+    kubernetes.io/ingress.class: traefik
+    ingress.kubernetes.io/ssl-redirect: "true"
+    #traefik.ingress.kubernetes.io/router.entrypoints: websecure
+spec:
+  rules:
+  - host: argocd.210.106.105.165.sslip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server 
+            port:
+              number: 443 
