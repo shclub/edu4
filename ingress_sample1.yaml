@@ -3,8 +3,9 @@ kind: Ingress
 metadata:
   name: flask-edu4-app-v1
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
     ingressclass.kubernetes.io/is-default-class: "true"
+    ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: 210.106.105.165.nip.io
